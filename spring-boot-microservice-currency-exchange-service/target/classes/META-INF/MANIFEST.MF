@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: spring-boot-microservice-currency-exchange-servi
+ ce
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: a563627
+Implementation-Vendor-Id: com.microService
+Build-Jdk: 1.8.0_51
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-boot-microservice-currency-exchange-service
+Created-By: Maven Integration for Eclipse
+
