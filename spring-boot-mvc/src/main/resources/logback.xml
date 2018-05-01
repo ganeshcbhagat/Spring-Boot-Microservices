@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration  debug="true" scan="true" scanPeriod="30 seconds">
+	<property name="LOG_PATH_HOME" value="C:/Users/hp/eclipse-workspace/spring-boot-mvc/app-log"/>
+	<property name="LOG_ARCHIVE" value="${LOG_PATH_HOME}/archive"/>
+	<property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5p %logger{36} %X{akkaSource} [%file:%line] - %m%n"></property>
+    
+	<appender name="Console-Appender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+    <appender name="RollingFile-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH_HOME}/log/app-log-file.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/app-log-file.log%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+	<root level="INFO">
+		<appender-ref ref="Console-Appender" additivity="false" />
+		<appender-ref ref="RollingFile-Appender" />
+	</root>
+	
+	<!-- <root level="DEBUG">
+		<appender-ref ref="STDOUT" additivity="false" />
+		<appender-ref ref="File-Appender" additivity="false" />
+	</root>
+	<root level="TRACE">
+		<appender-ref ref="STDOUT" additivity="false" />
+		<appender-ref ref="File-Appender" additivity="false" />
+	</root>
+	<root level="WARN">
+		<appender-ref ref="STDOUT" additivity="false" />
+		<appender-ref ref="File-Appender" additivity="false" />
+	</root>
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" additivity="false" />
+		<appender-ref ref="File-Appender" additivity="false" />
+	</root> -->
+</configuration>
